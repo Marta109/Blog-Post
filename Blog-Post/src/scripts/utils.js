@@ -9,7 +9,21 @@ const validateTagName = (tagName) => {
 };
 
 const validAttribute = (attrName) => {
-  const validAttributes = ['id', 'class', 'style', 'href', 'src'];
+  console.log(attrName);
+
+  const validAttributes = [
+    'id',
+    'class',
+    'style',
+    'href',
+    'src',
+    'type',
+    'required',
+    'placeholder',
+    'value',
+    'name',
+    'for',
+  ];
   return validAttributes.includes(attrName);
 };
 

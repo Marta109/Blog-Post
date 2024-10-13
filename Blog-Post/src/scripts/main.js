@@ -14,6 +14,10 @@ function createLoginLayout() {
   link.setAttribute('href', 'src/pages/home.html');
   link.innerText = 'Home';
 
+  const link1 = document.createElement('a');
+  link1.setAttribute('href', 'src/pages/registration.html');
+  link1.innerText = 'registration';
+
   const formWrapper = document.createElement('div');
   formWrapper.setAttribute('class', 'form-wrapper');
 
@@ -34,7 +38,7 @@ function createLoginLayout() {
   buttonLogin.setAttribute('type', 'submit');
   buttonLogin.innerText = 'Login';
 
-  header.appendChild(link);
+  header.append(link, link1);
 
   // Form
   form.appendChild(inputUsername);

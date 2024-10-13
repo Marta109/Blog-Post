@@ -1,10 +1,9 @@
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
-    UI.createElement(
-      'header',
-      { class: 'header' },
+    UI.createElement('header', { class: 'header' }, [
       UI.createElement('a', { href: '../../index.html' }, 'Log In'),
-    ),
+      UI.createElement('a', { href: './registration.html' }, 'Registration'),
+    ]),
     UI.createElement('main', { class: 'main-section' }, [
       UI.createElement('nav', { class: 'sidebar' }, 'sidebar'),
       UI.createElement('div', { class: 'section' }, [

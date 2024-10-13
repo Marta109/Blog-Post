@@ -30,6 +30,10 @@ body {
   box-sizing: border-box;
 }
 
+.header a {
+  margin-left: 10px;
+}
+
 .form-wrapper {
   display: flex;
   flex: 1;
@@ -39,6 +43,14 @@ body {
 }
 
 .login-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.registration-container {
   padding: 20px;
   background-color: white;
   border-radius: 8px;
@@ -59,6 +71,56 @@ form input {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+form select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form select > option {
+  color: #555;
+  height: 50px;
+  padding: 15px;
+}
+
+form .select-option {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  gap: 50px;
+}
+
+form .select-option div {
+  width: 10%;
+  display: flex;
+  align-items: baseline;
+}
+
+form .select-option label {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+form .registration-submit {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form .registration-submit .checkbox-send {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+form .registration-submit .checkbox-send input {
+  width: 13px;
+  padding-left: 10px;
 }
 
 button {
