@@ -3,7 +3,7 @@ function createHomeLayout() {
     UI.createElement(
       'header',
       { class: 'header' },
-      UI.createElement('a', { href: './index.html' }, 'Log In'),
+      UI.createElement('a', { href: '../../index.html' }, 'Log In'),
     ),
     UI.createElement('main', { class: 'main-section' }, [
       UI.createElement('nav', { class: 'sidebar' }, 'sidebar'),
