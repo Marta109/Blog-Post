@@ -1,7 +1,7 @@
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
-      UI.createElement('a', { href: '../../index.html' }, 'Log In'),
+      UI.createElement('a', { href: '../../index.html' }, 'Sign in'),
       UI.createElement('a', { href: './registration.html' }, 'Registration'),
     ]),
     UI.createElement('main', { class: 'main-section' }, [
@@ -29,7 +29,6 @@ setInterval(() => {
   const section = document.querySelector('div.section');
 
   if (section) {
-    console.log('removed');
     section.removeChild(document.querySelector('footer'));
   }
 

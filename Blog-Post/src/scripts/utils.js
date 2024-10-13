@@ -9,8 +9,6 @@ const validateTagName = (tagName) => {
 };
 
 const validAttribute = (attrName) => {
-  console.log(attrName);
-
   const validAttributes = [
     'id',
     'class',
@@ -62,6 +60,14 @@ const UI = {
   },
 
   render(element, parent) {
+    if (!(parent instanceof HTMLElement)) {
+      console.log(parent);
+      throw new Error(`Invalid parent element for render!`);
+    }
+    if (!(element instanceof HTMLElement)) {
+      throw new Error(`Invalid parent element for render!`);
+    }
+
     parent.append(element);
   },
 };
