@@ -1,0 +1,132 @@
+@import  '_token.sass'
+
+*
+    font-family: $font
+    transition: all 0.2s linear
+
+body
+    background-color: $mainColor
+    margin: 0
+
+.container-root
+    display: flex
+    flex-direction: column
+    height: 100vh
+
+.header
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    gap: 30px
+    background-color: $bgColor
+    padding: $padding-medium
+    height: 65px
+    a
+        margin-left: 10px
+
+.form-wrapper
+    display: flex
+    flex: 1
+    justify-content: center
+    align-items: center
+    height: calc(100vh - 40px)
+
+.login-container
+    padding: $padding-medium
+    background-color: white
+    border-radius: 8px
+    box-shadow: 0 0 10px $boxShedow
+    width: 300px
+
+.registration-container
+    padding: $padding-medium
+    background-color: white
+    border-radius: 8px
+    box-shadow: 0 0 10px $boxShedow
+    width: 300px
+
+form
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    input
+        width: 100%
+        margin-bottom: 10px
+        padding: $padding-small
+        border: 1px solid $grayBorder
+        border-radius: $border-radius
+        box-sizing: border-box
+
+    select
+        width: 100%
+        margin-bottom: 10px
+        padding: $padding-small
+        border: 1px solid $grayBorder
+        border-radius: $border-radius
+        & > option
+            color: #555
+            height: 50px
+            padding: 15px
+    .select-option
+        width: 100%
+        display: flex
+        justify-content: start
+        gap: 50px
+        div
+            width: 10%
+            display: flex
+            align-items: baseline
+        label
+            padding-left: 10px
+            cursor: pointer
+    .registration-submit
+        margin-top: 20px
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .checkbox-send
+            display: flex
+            align-items: baseline
+            gap: 10px
+            input
+                width: 13px
+                padding-left: 10px
+button
+    padding: 10px 16px
+    background-color: $bgColor
+    color: white
+    border: none
+    border-radius: $border-radius
+    cursor: pointer
+.main-section
+    display: flex
+    flex: 1
+    padding: $padding-medium
+    box-sizing: border-box
+.sidebar
+    width: 200px
+    height: 100%
+    background-color: $mainColor
+    padding: $padding-medium
+    box-sizing: border-box
+    box-shadow: 0 0 10px $boxShedow
+.section
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    margin-left: 20px
+    width: 100%
+.box
+    box-sizing: border-box
+    box-shadow: 0 0 10px $boxShedow
+    flex: 1
+    min-height: 300px
+    margin-bottom: 10px
+.footer
+    box-shadow: 0 0 10px $boxShedow
+    height: 70px
+    text-align: center
+    background: $bgColor
+    padding: $padding-medium

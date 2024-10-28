@@ -1,8 +1,21 @@
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
-      UI.createElement('a', { href: '../../index.html' }, 'Sign in'),
-      UI.createElement('a', { href: './registration.html' }, 'sign up'),
+      UI.createElement(
+        'a',
+        { class: 'btn btn-primary', href: '../../index.html' },
+        'Sign In',
+      ),
+      UI.createElement(
+        'a',
+        { class: 'btn btn-primary', href: './registration.html' },
+        'Sign Up',
+      ),
+      UI.createElement(
+        'button',
+        { class: 'toggle-theme btn btn-dark' },
+        'theme',
+      ),
     ]),
     UI.createElement('main', { class: 'main-section' }, [
       UI.createElement('nav', { class: 'sidebar' }, 'sidebar'),
@@ -38,3 +51,9 @@ setInterval(() => {
 }, 1000);
 
 createHomeLayout();
+
+const toggleBtn = document.querySelector('.toggle-theme');
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+});

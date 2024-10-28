@@ -1,8 +1,21 @@
 function createRegistrationLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
-      UI.createElement('a', { href: '../../index.html' }, 'Sign In'),
-      UI.createElement('a', { href: './home.html' }, 'Home'),
+      UI.createElement(
+        'a',
+        { class: 'btn btn-primary', href: '../../index.html' },
+        'Sign In',
+      ),
+      UI.createElement(
+        'a',
+        { class: 'btn btn-primary', href: './home.html' },
+        'Home',
+      ),
+      UI.createElement(
+        'button',
+        { class: 'toggle-theme btn btn-dark' },
+        'theme',
+      ),
     ]),
     UI.createElement('div', { class: 'form-wrapper' }, [
       UI.createElement('div', { class: 'registration-container' }, [
@@ -101,3 +114,9 @@ setInterval(() => {
 }, 1000);
 
 createRegistrationLayout();
+
+const toggleBtn = document.querySelector('.toggle-theme');
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+});
