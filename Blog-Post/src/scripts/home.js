@@ -19,11 +19,11 @@ function createHomeLayout() {
     ]),
     UI.createElement('main', { class: 'main-section' }, [
       UI.createElement('nav', { class: 'sidebar' }, 'sidebar'),
-      UI.createElement('div', { class: 'section' }, [
-        UI.createElement('section', { class: 'box' }, 'section'),
-        UI.createElement('section', { class: 'box' }, 'section'),
-        createFooter(),
-      ]),
+      // UI.createElement('div', { class: 'section' }, [
+      UI.createElement('section', { class: 'box' }, 'section'),
+      UI.createElement('section', { class: 'box' }, 'section'),
+      createFooter(),
+      // ]),
     ]),
   ]);
 
