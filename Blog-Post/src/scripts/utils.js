@@ -21,6 +21,10 @@ const validAttribute = (attrName) => {
     'value',
     'name',
     'for',
+    'alt',
+    'data-mdb-input-init',
+    'data-mdb-button-init',
+    'data-mdb-ripple-init',
   ];
   return validAttributes.includes(attrName);
 };

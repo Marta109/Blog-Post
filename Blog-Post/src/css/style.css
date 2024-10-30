@@ -1,5 +1,6 @@
 .dark-theme {
-  background-color: rgb(29, 53, 87);
+  background: -webkit-gradient(linear, left top, right top, from(#06000e), to(#9883e5));
+  background: linear-gradient(to right, #06000e, #9883e5);
   color: #f0f0f0;
 }
 
@@ -60,13 +61,23 @@ body {
   height: calc(100vh - 40px);
 }
 
-.login-container {
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+.login-container .card {
+  border-radius: 1rem;
+}
+
+.login-container .img-fluid {
+  border-radius: 1rem 0 0 1rem;
+  height: 100%;
+}
+
+.login-container p {
+  color: #393f81;
+}
+
+.login-container a {
+  margin-left: 10px;
+  font-weight: 500;
+  color: #393f81;
 }
 
 .registration-container {
