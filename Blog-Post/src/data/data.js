@@ -45,3 +45,5 @@ const bloggers = [
     avatar: 'https://www.w3schools.com/w3images/avatar6.png',
   },
 ];
+
+export { posts, bloggers };

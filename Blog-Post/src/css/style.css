@@ -207,6 +207,7 @@ button {
 .section {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  gap: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,14 +227,33 @@ button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-height: 300px;
   margin-bottom: 10px;
+}
+.boximg {
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.box .card-descr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: red;
 }
 
 .footer {
+  margin-top: 10px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 70px;
   text-align: center;
   background: #9883e5;
   padding: 20px;

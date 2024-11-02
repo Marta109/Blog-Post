@@ -25,6 +25,7 @@ const validAttribute = (attrName) => {
     'data-mdb-input-init',
     'data-mdb-button-init',
     'data-mdb-ripple-init',
+    'h5',
   ];
   return validAttributes.includes(attrName);
 };

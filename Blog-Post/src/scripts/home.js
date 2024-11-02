@@ -1,3 +1,6 @@
+import createPosts from './createPosts.js';
+const posts = createPosts();
+
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
@@ -18,10 +21,11 @@ function createHomeLayout() {
       ),
     ]),
     UI.createElement('main', { class: 'main-section' }, [
-      UI.createElement('nav', { class: 'sidebar' }, 'sidebar'),
+      UI.createElement('nav', { class: 'sidebar' }, 'Bloggers'),
       UI.createElement('div', { class: 'section' }, [
-        UI.createElement('section', { class: 'box' }, 'section'),
-        UI.createElement('section', { class: 'box' }, 'section'),
+        ...posts,
+        // UI.createElement('section', { class: 'box' }, 'section'),
+        // UI.createElement('section', { class: 'box' }, 'section'),
         createFooter(),
       ]),
     ]),
