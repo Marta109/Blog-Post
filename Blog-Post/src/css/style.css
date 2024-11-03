@@ -218,4 +218,20 @@ form select {
   text-align: center;
   background: #7B74FF;
   padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .main-section .sidebar {
+    max-width: 150px;
+  }
+  .main-section .container .card img {
+    width: 100px;
+    height: 100px;
+  }
+  .main-section .card-body {
+    padding: 5px;
+  }
+  .main-section .card {
+    padding: 10px;
+  }
 }/*# sourceMappingURL=style.css.map */
