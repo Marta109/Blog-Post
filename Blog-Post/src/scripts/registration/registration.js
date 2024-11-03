@@ -1,23 +1,22 @@
 import { createFooter, updateFooter } from '../footer/footer.js';
+import toggleThem from '../themeToggle.js';
 
 function createRegistrationLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
       UI.createElement(
         'a',
-        { class: 'btn btn-primary', href: '../../index.html' },
+        { class: 'btn btn-dark', href: '../../index.html' },
         'Sign In',
       ),
       UI.createElement(
         'a',
-        { class: 'btn btn-primary', href: './home.html' },
+        { class: 'btn btn-dark', href: './home.html' },
         'Home',
       ),
-      UI.createElement(
-        'button',
-        { class: 'toggle-theme btn btn-dark' },
-        'Theme',
-      ),
+      UI.createElement('button', { class: 'toggle-theme btn btn-dark' }, [
+        UI.createElement('i', { class: 'fas fa-moon' }),
+      ]),
     ]),
     UI.createElement('section', { class: 'registration-form' }, [
       UI.createElement('div', { class: 'container py-5 h-100' }, [
@@ -67,6 +66,7 @@ function createRegistrationLayout() {
                                       class: 'form-control form-control-lg',
                                       type: 'text',
                                       id: 'firstName',
+                                      required: true,
                                     }),
                                     UI.createElement(
                                       'label',
@@ -95,6 +95,7 @@ function createRegistrationLayout() {
                                       class: 'form-control form-control-lg',
                                       type: 'text',
                                       id: 'lastName',
+                                      required: true,
                                     }),
                                     UI.createElement(
                                       'label',
@@ -128,6 +129,7 @@ function createRegistrationLayout() {
                                       class: 'form-control form-control-lg',
                                       type: 'text',
                                       id: 'birthdayDate',
+                                      required: true,
                                     }),
                                     UI.createElement(
                                       'label',
@@ -243,6 +245,7 @@ function createRegistrationLayout() {
                                       class: 'form-control form-control-lg',
                                       type: 'email',
                                       id: 'emailAddress',
+                                      required: true,
                                     }),
                                     UI.createElement(
                                       'label',
@@ -333,7 +336,7 @@ function createRegistrationLayout() {
                             [
                               UI.createElement('input', {
                                 'data-mdb-ripple-init': '',
-                                class: 'btn btn-primary btn-lg',
+                                class: 'btn btn-dark btn-lg btn-block',
                                 type: 'submit',
                                 value: 'Submit',
                               }),
@@ -361,9 +364,4 @@ setInterval(() => {
 }, 1000);
 
 createRegistrationLayout();
-
-const toggleBtn = document.querySelector('.toggle-theme');
-
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
-});
+toggleThem();

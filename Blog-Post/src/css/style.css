@@ -1,6 +1,5 @@
 .dark-theme {
-  background: -webkit-gradient(linear, left top, right top, from(#06000e), to(#9883e5));
-  background: linear-gradient(to right, #06000e, #9883e5);
+  background: #726EFF;
   color: #f0f0f0;
 }
 
@@ -11,7 +10,7 @@
 }
 
 body {
-  background-color: #2A2C39;
+  background-color: #212B38;
   margin: 0;
 }
 
@@ -23,7 +22,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header {
@@ -39,12 +38,11 @@ body {
   gap: 30px;
   background-color: #7B74FF;
   padding: 20px;
-  height: 65px;
-  border: 1px solid pink;
+  min-height: 60px;
   border-radius: 4px;
-}
-.header a {
-  margin-left: 10px;
+  -webkit-box-shadow: 0 0 20px #646cff;
+          box-shadow: 0 0 20px #646cff;
+  background: url(https://i.pinimg.com/originals/1a/ba/73/1aba73d7d0cf7299158082fab3d8bfa3.jpg) center center/cover no-repeat;
 }
 
 .form-wrapper {
@@ -65,30 +63,28 @@ body {
 
 .login-container .card {
   border-radius: 1rem;
+  -webkit-box-shadow: 0 0 20px #646cff;
+          box-shadow: 0 0 20px #646cff;
 }
-
-.login-container .img-fluid {
-  border-radius: 1rem 0 0 1rem;
+.login-container .card .img-fluid {
+  -webkit-box-shadow: 0 0 20px #646cff;
+          box-shadow: 0 0 20px #646cff;
+  border-radius: 1rem;
   height: 100%;
+  width: 100%;
 }
-
-.login-container p {
-  color: #393f81;
+.login-container .card p {
+  color: #212B38;
 }
-
-.login-container a {
+.login-container .card a {
   margin-left: 10px;
   font-weight: 500;
-  color: #393f81;
+  color: #646cff;
 }
 
-.registration-container {
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+.card-registration {
+  -webkit-box-shadow: 0 0 20px #646cff;
+          box-shadow: 0 0 20px #646cff;
 }
 
 form {
@@ -107,7 +103,7 @@ form input {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -116,71 +112,6 @@ form select {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-form select > option {
-  color: #555;
-  height: 50px;
-  padding: 15px;
-}
-form .select-option {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  gap: 50px;
-}
-form .select-option div {
-  width: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-}
-form .select-option label {
-  padding-left: 10px;
-  cursor: pointer;
-}
-form .registration-submit {
-  margin-top: 20px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-form .registration-submit .checkbox-send {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  gap: 10px;
-}
-form .registration-submit .checkbox-send input {
-  width: 13px;
-  padding-left: 10px;
-}
-
-button {
-  padding: 10px 16px;
-  background-color: #7B74FF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .main-section {
@@ -191,33 +122,35 @@ button {
       -ms-flex: 1;
           flex: 1;
   padding: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
-
-.sidebar {
+.main-section .sidebar {
   width: 200px;
   height: 100%;
-  background-color: #2A2C39;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  background-color: #212B38;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 10px #0F1540;
+          box-shadow: 0 0 10px #0F1540;
 }
-.sidebar .container {
+.main-section .container {
   width: 100%;
   padding: 0;
 }
-.sidebar .container .card {
+.main-section .container .card {
   padding: 20px;
   margin-bottom: 10px;
   text-align: center;
+  background: #DCB586;
+  border-radius: 4px;
 }
-.sidebar .container .card img {
+.main-section .container .card img {
   width: 150px;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-box-shadow: 0 0 10px #0F1540;
+          box-shadow: 0 0 10px #0F1540;
 }
 
 .section {
@@ -232,7 +165,6 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-left: 20px;
-  width: 100%;
 }
 
 .box {
@@ -245,10 +177,18 @@ button {
           flex: 1;
   margin-bottom: 10px;
 }
-.boximg {
+.box img {
   height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0 0 10px #0F1540;
+          box-shadow: 0 0 10px #0F1540;
+  border-radius: 4px;
+}
+.box .card {
+  background: #DCB586;
+  -webkit-box-shadow: 0 0 20px #646cff;
+          box-shadow: 0 0 20px #646cff;
 }
 .box .card-descr {
   display: -webkit-box;
@@ -263,13 +203,18 @@ button {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #7B74FF;
+  color: #0F1540;
+}
+.box .card-descr .card-title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .footer {
   margin-top: 10px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 20px #646cff;
+          box-shadow: 0 0 20px #646cff;
+  border-radius: 4px;
   text-align: center;
   background: #7B74FF;
   padding: 20px;

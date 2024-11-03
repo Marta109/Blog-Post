@@ -1,23 +1,22 @@
 import { createFooter, updateFooter } from '../footer/footer.js';
+import toggleThem from '../themeToggle.js';
 
 function createLoginLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
       UI.createElement(
         'a',
-        { class: 'btn btn-primary', href: 'src/pages/registration.html' },
+        { class: 'btn btn-dark', href: 'src/pages/registration.html' },
         'Sign up',
       ),
       UI.createElement(
         'a',
-        { class: 'btn btn-primary', href: 'src/pages/home.html' },
+        { class: 'btn btn-dark', href: 'src/pages/home.html' },
         'Home',
       ),
-      UI.createElement(
-        'button',
-        { class: 'toggle-theme btn btn-dark' },
-        'theme',
-      ),
+      UI.createElement('button', { class: 'toggle-theme btn btn-dark' }, [
+        UI.createElement('i', { class: 'fas fa-moon' }),
+      ]),
     ]),
     UI.createElement('div', { class: 'form-wrapper vh-100 login-container' }, [
       UI.createElement('div', { class: 'container py-5 h-100' }, [
@@ -165,9 +164,13 @@ setInterval(() => {
 }, 1000);
 
 createLoginLayout();
+toggleThem();
 
-const toggleBtn = document.querySelector('.toggle-theme');
+// const toggleBtn = document.querySelector('.toggle-theme');
+// const themeIcon = toggleBtn.querySelector('i');
 
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
-});
+// toggleBtn.addEventListener('click', () => {
+//   document.body.classList.toggle('dark-theme');
+//   themeIcon.classList =
+//     themeIcon.classList[1] === 'fa-sun' ? 'fas fa-moon' : 'fas fa-sun';
+// });
