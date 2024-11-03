@@ -1,5 +1,6 @@
+import createBloggerCard from './createBloggerCard.js';
 import createPosts from './createPosts.js';
-const posts = createPosts();
+import { createFooter, updateFooter } from '../footer/footer.js';
 
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
@@ -17,15 +18,17 @@ function createHomeLayout() {
       UI.createElement(
         'button',
         { class: 'toggle-theme btn btn-dark' },
-        'theme',
+        'Theme',
       ),
     ]),
     UI.createElement('main', { class: 'main-section' }, [
-      UI.createElement('nav', { class: 'sidebar' }, 'Bloggers'),
+      UI.createElement('nav', { class: 'sidebar' }, [
+        UI.createElement('div', { class: 'container' }, [
+          ...createBloggerCard(),
+        ]),
+      ]),
       UI.createElement('div', { class: 'section' }, [
-        ...posts,
-        // UI.createElement('section', { class: 'box' }, 'section'),
-        // UI.createElement('section', { class: 'box' }, 'section'),
+        ...createPosts(),
         createFooter(),
       ]),
     ]),
@@ -34,24 +37,8 @@ function createHomeLayout() {
   UI.render(container, document.body);
 }
 
-function createFooter() {
-  return UI.createElement(
-    'footer',
-    { class: 'footer', id: 'time-footer' },
-    Date().toString(),
-  );
-}
-
 setInterval(() => {
-  const section = document.querySelector('div.section');
-
-  if (section) {
-    section.removeChild(document.querySelector('footer'));
-  }
-
-  const footer = createFooter();
-
-  UI.render(footer, document.querySelector('div.section'));
+  updateFooter();
 }, 1000);
 
 createHomeLayout();

@@ -18,9 +18,11 @@ body
     justify-content: flex-end
     align-items: center
     gap: 30px
-    background-color: $bgColor
+    background-color: $colorMain
     padding: $padding-medium
     height: 65px
+     border: 1px solid $grayBorder
+        border-radius: $border-radius
     a
         margin-left: 10px
 
@@ -105,7 +107,7 @@ form
                 padding-left: 10px
 button
     padding: 10px 16px
-    background-color: $bgColor
+    background-color: $colorMain
     color: white
     border: none
     border-radius: $border-radius
@@ -119,9 +121,21 @@ button
     width: 200px
     height: 100%
     background-color: $mainColor
-    padding: $padding-medium
     box-sizing: border-box
     box-shadow: 0 0 10px $boxShedow
+    .container
+        width: 100%
+        padding: 0
+        // cursor: pointer
+        .card
+            padding: $padding-medium
+            margin-bottom: 10px
+            text-align: center
+            img
+                width: 150px
+                height: 150px
+                object-fit: cover
+                
 .section
     box-sizing: border-box
     gap: 10px
@@ -143,11 +157,14 @@ button
         flex-direction: row
         justify-content: space-between
         flex-wrap: wrap
-        color: red
+        color: $colorMain
 .footer
     margin-top: 10px
     box-shadow: 0 0 10px $boxShedow
     // min-height: 70px
     text-align: center
-    background: $bgColor
+    background: $colorMain
     padding: $padding-medium
+
+
+    

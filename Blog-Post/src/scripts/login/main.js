@@ -1,3 +1,5 @@
+import { createFooter, updateFooter } from '../footer/footer.js';
+
 function createLoginLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
     UI.createElement('header', { class: 'header' }, [
@@ -158,24 +160,8 @@ function createLoginLayout() {
   UI.render(container, document.body);
 }
 
-function createFooter() {
-  return UI.createElement(
-    'footer',
-    { class: 'footer', id: 'time-footer' },
-    Date().toString(),
-  );
-}
-
 setInterval(() => {
-  const section = document.querySelector('.container-root');
-
-  if (section) {
-    section.removeChild(document.querySelector('footer'));
-  }
-
-  const footer = createFooter();
-
-  UI.render(footer, document.querySelector('.container-root'));
+  updateFooter;
 }, 1000);
 
 createLoginLayout();

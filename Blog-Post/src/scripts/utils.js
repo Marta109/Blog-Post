@@ -26,6 +26,8 @@ const validAttribute = (attrName) => {
     'data-mdb-button-init',
     'data-mdb-ripple-init',
     'h5',
+    'checked',
+    'disabled',
   ];
   return validAttributes.includes(attrName);
 };

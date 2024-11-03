@@ -1,4 +1,4 @@
-import { posts } from '../data/data.js';
+import { posts } from '../../data/data.js';
 
 const createPosts = () => {
   let section = [];
