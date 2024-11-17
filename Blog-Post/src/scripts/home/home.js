@@ -1,3 +1,4 @@
+import createHeader from '../header/createHeader.js';
 import createBloggerCard from './createBloggerCard.js';
 import createPosts from './createPosts.js';
 import { createFooter, updateFooter } from '../footer/footer.js';
@@ -5,20 +6,9 @@ import toggleThem from '../themeToggle.js';
 
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
-    UI.createElement('header', { class: 'header' }, [
-      UI.createElement(
-        'a',
-        { class: 'btn btn-dark', href: '../../index.html' },
-        'Sign In',
-      ),
-      UI.createElement(
-        'a',
-        { class: 'btn btn-dark', href: './registration.html' },
-        'Sign Up',
-      ),
-      UI.createElement('button', { class: 'toggle-theme btn btn-dark' }, [
-        UI.createElement('i', { class: 'fas fa-moon' }),
-      ]),
+    createHeader([
+      { name: 'Sign In', href: '../../index.html' },
+      { name: 'Sign Up', href: './registration.html' },
     ]),
     UI.createElement('main', { class: 'main-section' }, [
       UI.createElement('nav', { class: 'sidebar' }, [

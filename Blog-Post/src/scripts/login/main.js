@@ -1,22 +1,12 @@
+import createHeader from '../header/createHeader.js';
 import { createFooter, updateFooter } from '../footer/footer.js';
 import toggleThem from '../themeToggle.js';
 
 function createLoginLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
-    UI.createElement('header', { class: 'header' }, [
-      UI.createElement(
-        'a',
-        { class: 'btn btn-dark', href: 'src/pages/registration.html' },
-        'Sign up',
-      ),
-      UI.createElement(
-        'a',
-        { class: 'btn btn-dark', href: 'src/pages/home.html' },
-        'Home',
-      ),
-      UI.createElement('button', { class: 'toggle-theme btn btn-dark' }, [
-        UI.createElement('i', { class: 'fas fa-moon' }),
-      ]),
+    createHeader([
+      { name: 'Sign Up', href: 'src/pages/registration.html' },
+      { name: 'Home', href: 'src/pages/home.html' },
     ]),
     UI.createElement('div', { class: 'form-wrapper vh-100 login-container' }, [
       UI.createElement('div', { class: 'container py-5 h-100' }, [
