@@ -1,5 +1,5 @@
 import createHeader from '../header/createHeader.js';
-import { createFooter, updateFooter } from '../footer/footer.js';
+import { createFooter, updateFooter } from '../footer/createFooter.js';
 import toggleThem from '../themeToggle.js';
 
 function createLoginLayout() {

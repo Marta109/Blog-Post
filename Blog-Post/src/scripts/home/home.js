@@ -1,7 +1,7 @@
 import createHeader from '../header/createHeader.js';
 import createBloggerCard from './createBloggerCard.js';
 import createPosts from './createPosts.js';
-import { createFooter, updateFooter } from '../footer/footer.js';
+import { createFooter, updateFooter } from '../footer/createFooter.js';
 import toggleThem from '../themeToggle.js';
 
 function createHomeLayout() {
