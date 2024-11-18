@@ -1,6 +1,6 @@
 import createHeader from '../header/createHeader.js';
 import { createFooter, updateFooter } from '../footer/createFooter.js';
-import toggleThem from '../themeToggle.js';
+import { toggleThem } from '../header/headerBtnHandlers.js';
 
 function createRegistrationLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [

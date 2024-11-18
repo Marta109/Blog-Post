@@ -1,6 +1,6 @@
 import createHeader from '../header/createHeader.js';
 import { createFooter, updateFooter } from '../footer/createFooter.js';
-import toggleThem from '../themeToggle.js';
+import { toggleThem } from '../header/headerBtnHandlers.js';
 
 function createLoginLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
@@ -74,6 +74,7 @@ function createLoginLayout() {
                                   type: 'text',
                                   class: 'form-control form-control-lg',
                                   placeholder: 'username',
+                                  name: 'username',
                                   id: 'formUserName',
                                   required: true,
                                 }),
@@ -98,6 +99,7 @@ function createLoginLayout() {
                                   type: 'password',
                                   class: 'form-control form-control-lg',
                                   placeholder: 'password',
+                                  name: 'password',
                                   id: 'formPassword',
                                   required: true,
                                 }),
