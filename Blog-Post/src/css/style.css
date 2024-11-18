@@ -85,7 +85,7 @@
   text-align: center;
 }
 .create-post-container .card {
-  background: #bfc1f2;
+  background: #DCB586;
 }
 .create-post-container span {
   background: #7B74FF;
@@ -314,10 +314,12 @@ form select {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   color: #0F1540;
+  text-transform: capitalize;
 }
 .box .card-descr .card-title {
   font-size: 2rem;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .footer {

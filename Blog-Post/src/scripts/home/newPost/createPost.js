@@ -1,9 +1,10 @@
-import createHeader from '../header/createHeader.js';
-import { createFooter, updateFooter } from '../footer/createFooter.js';
-import { toggleThem, logOutHandler } from '../header/headerBtnHandlers.js';
+import createHeader from '../../header/createHeader.js';
+import { createFooter, updateFooter } from '../../footer/createFooter.js';
+import { toggleThem, logOutHandler } from '../../header/headerBtnHandlers.js';
+import { createNewPost } from './createPostHandler.js';
 
 const createNewPostLayout = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem('user'));
   console.log(user);
 
   const container = UI.createElement('div', { class: 'container-root' }, [
@@ -33,6 +34,7 @@ const createNewPostLayout = () => {
               UI.createElement('input', {
                 placeholder: 'First Name',
                 class: 'form-control',
+                name: 'firstName',
                 type: 'text',
                 value: user.name,
                 disabled: '',
@@ -41,6 +43,7 @@ const createNewPostLayout = () => {
                 placeholder: 'Last Name',
                 class: 'form-control',
                 type: 'text',
+                name: 'lastName',
                 value: user.surName,
                 disabled: '',
               }),
@@ -51,6 +54,7 @@ const createNewPostLayout = () => {
                 class: 'form-control',
                 type: 'text',
                 placeholder: 'Gadfly',
+                name: 'title',
               }),
             ]),
             UI.createElement('div', { class: 'input-group mb-3' }, [
@@ -61,6 +65,7 @@ const createNewPostLayout = () => {
               ),
               UI.createElement('input', {
                 class: 'form-control',
+                name: 'imgLink',
                 type: 'text',
                 placeholder:
                   'https://sun9-23.userapi.com/impf/m-6iB189pkGwNwW7JpEGAcmP8Z2PQE7D_q92bQ/XnTJPTYJVzM.jpg?size=604x427&quality=96&sign=56773b5e3725058cb090271b5720f715&c_uniq_tag=Qf3hVdT_q5JKGtBSPmaKBfWyN_3CD3XnKYtdIaV95EM&type=album',
@@ -83,7 +88,7 @@ const createNewPostLayout = () => {
                 UI.createElement('textarea', {
                   class: 'form-control',
                   type: 'text',
-                  id: 'story',
+                  name: 'story',
                   placeholder:
                     '*The Gadfly* is a famous novel by English writer Ethel Lilian Voynich, which tells the story of a fight for freedom and ideals. The main character, Arthur Burton, goes through betrayal, personal losses, and a transformation from a naive young man into a courageous revolutionary known as the Gadfly. This is a story about self-sacrifice, inner strength, and love that deeply touches the soul with its tragedy.',
                 }),
@@ -120,3 +125,4 @@ setInterval(() => {
 createNewPostLayout();
 toggleThem();
 logOutHandler();
+createNewPost();

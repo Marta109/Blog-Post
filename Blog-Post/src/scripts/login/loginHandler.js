@@ -17,7 +17,7 @@ loginForm.addEventListener('submit', (e) => {
     lastLoggedIn: new Date()
   }
 
-  localStorage.setItem('user', JSON.stringify(user));
+  sessionStorage.setItem('user', JSON.stringify(user));
 
   createNotification('success', 'Login successful! Welcome back.');
 

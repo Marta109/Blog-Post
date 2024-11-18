@@ -1,6 +1,12 @@
 import { posts } from '../../data/data.js';
 
 const createPosts = () => {
+  const newPost = JSON.parse(sessionStorage.getItem('newPost')) ;
+
+  if (newPost) {
+    posts.unshift(...newPost);
+    // sessionStorage.removeItem('newPost');
+  }
   return posts.map((el) => {
     return (el = UI.createElement('section', { class: 'box' }, [
       UI.createElement('div', { class: 'card' }, [

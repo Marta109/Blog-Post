@@ -29,6 +29,11 @@ export const createNotification = (
   if (parentElement) {
     parentElement.appendChild(notificationWrapper);
   }
+  
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 
   setTimeout(() => {
     notificationWrapper.classList.add('show');
