@@ -351,7 +351,7 @@ function createRegistrationLayout() {
 }
 
 setInterval(() => {
-  updateFooter;
+  updateFooter();
 }, 1000);
 
 createRegistrationLayout();

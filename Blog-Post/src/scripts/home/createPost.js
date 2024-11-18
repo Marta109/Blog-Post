@@ -1,5 +1,5 @@
 import createHeader from '../header/createHeader.js';
-import { createFooter } from '../footer/createFooter.js';
+import { createFooter, updateFooter } from '../footer/createFooter.js';
 import { toggleThem, logOutHandler } from '../header/headerBtnHandlers.js';
 
 const createNewPostLayout = () => {
@@ -15,13 +15,19 @@ const createNewPostLayout = () => {
       ],
       true,
     ),
-    UI.createElement('div', { class: 'section' }, [
-      //   ...createPosts(),
+    UI.createElement('section', { class: 'create-post-container' }, [
+      UI.createElement('h2', { class: 'text-center' }, 'Create a New Post'),
+      //...Create Post Form Here...
     ]),
     createFooter(),
   ]);
+
   UI.render(container, document.body);
 };
+
+setInterval(() => {
+  updateFooter();
+}, 1000);
 
 createNewPostLayout();
 toggleThem();
