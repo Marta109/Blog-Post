@@ -15,7 +15,7 @@ const logOutHandler = () => {
   if (!loginBtn) return;
 
   loginBtn.addEventListener('click', () => {
-    localStorage.removeItem('username');
+    localStorage.removeItem('user');
     if (window.location.href.includes('createPost')) {
       createNotification(
         'info',

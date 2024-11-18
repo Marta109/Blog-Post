@@ -15,7 +15,7 @@ function createHeader(links, bool = false) {
   if (bool) defaultBtns = links;
 
   let btns = [];
-  if (localStorage.getItem('username')) {
+  if (localStorage.getItem('user')) {
     btns = [
       UI.createElement('img', {
         src: 'https://mdbcdn.b-cdn.net/img/new/avatars/2.webp',

@@ -80,6 +80,35 @@
   }
 }
 
+.create-post-container {
+  margin: 40px;
+  text-align: center;
+}
+.create-post-container .card {
+  background: #bfc1f2;
+}
+.create-post-container span {
+  background: #7B74FF;
+  min-width: 100px;
+  font-weight: bold;
+}
+.create-post-container label {
+  font-weight: bold;
+  background: #7B74FF;
+}
+.create-post-container .page-header {
+  padding: 10px;
+  text-align: center;
+}
+.create-post-container .author-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.create-post-container .story-container textarea {
+  min-height: 200px;
+}
+
 * {
   font-family: "Roboto", sans;
   -webkit-transition: all 0.2s linear;

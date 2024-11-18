@@ -7,8 +7,6 @@ const createFooter = () => {
 };
 
 const updateFooter = () => {
-  console.log('jjjjj');
-
   let section = document.querySelector('div.section');
   let selector = 'div.section';
   if (!section) {

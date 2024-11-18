@@ -7,7 +7,17 @@ loginForm.addEventListener('submit', (e) => {
   const formData = new FormData(loginForm);
   const username = formData.get('username');
   // const password = formData.get('password');
-  localStorage.setItem('username', JSON.stringify(username));
+
+  const user={
+    username: username,
+    name: 'Jon',
+    surName:'Smith',
+    email: 'j@example.com',
+    loggedIn: true,
+    lastLoggedIn: new Date()
+  }
+
+  localStorage.setItem('user', JSON.stringify(user));
 
   createNotification('success', 'Login successful! Welcome back.');
 
