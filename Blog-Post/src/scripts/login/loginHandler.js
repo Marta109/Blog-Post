@@ -1,3 +1,4 @@
+import Storage from '../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
 
 const loginForm = document.querySelector('.login-container form');
@@ -8,16 +9,16 @@ loginForm.addEventListener('submit', (e) => {
   const username = formData.get('username');
   // const password = formData.get('password');
 
-  const user={
+  const user = {
     username: username,
     name: 'Jon',
-    surName:'Smith',
+    surName: 'Smith',
     email: 'j@example.com',
     loggedIn: true,
-    lastLoggedIn: new Date()
-  }
+    lastLoggedIn: new Date(),
+  };
 
-  sessionStorage.setItem('user', JSON.stringify(user));
+  Storage.setUserData(user);
 
   createNotification('success', 'Login successful! Welcome back.');
 
