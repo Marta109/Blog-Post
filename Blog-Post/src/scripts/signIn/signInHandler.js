@@ -1,6 +1,7 @@
 import Storage from '../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
-import signInValidation from '../validation/signInValidation.js';
+import RedirectHandler from '../redirection/redirectHandler.js';
+import Validation from '../validation/validation.js';
 
 const loginForm = document.querySelector('.login-container form');
 
@@ -20,12 +21,9 @@ loginForm.addEventListener('submit', (e) => {
   };
 
   try {
-    signInValidation(username, password);
+    Validation.signInValidation(username, password);
     Storage.setUserData(user);
-    createNotification('success', 'Sing In successful! Welcome back.');
-    setTimeout(() => {
-      window.location.href = '/Blog-Post/src/pages/home.html';
-    }, 3000);
+    RedirectHandler.signInHandler();
   } catch (error) {
     createNotification('error', error.message);
     console.error(error);

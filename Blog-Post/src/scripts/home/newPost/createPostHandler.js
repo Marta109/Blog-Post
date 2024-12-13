@@ -1,5 +1,6 @@
 import Storage from '../../../data/storage.js';
 import { createNotification } from '../../notification/createNotification.js';
+import RedirectHandler from '../../redirection/redirectHandler.js';
 
 export const createNewPost = () => {
   const addBnt = document.querySelector('#create-post');
@@ -29,7 +30,6 @@ export const createNewPost = () => {
     const newPost = { id, title, story, authorName, img };
 
     Storage.setNewPost(newPost);
-
-    window.location.href = './home.html';
+    RedirectHandler.redirectAfterPostCreation();
   });
 };

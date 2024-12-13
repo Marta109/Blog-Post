@@ -1,23 +1,10 @@
-import { createNotification } from '../scripts/notification/createNotification.js';
+import RedirectHandler from '../scripts/redirection/redirectHandler.js';
 
 class Storage {
-  constructor() {}
-
   static clearUserData(itemName = 'user') {
     try {
       sessionStorage.removeItem(itemName);
-      if (window.location.href.includes('createPost')) {
-        createNotification(
-          'info',
-          'You have successfully logged out and will be redirected to the login page.',
-        );
-        setTimeout(() => {
-          // window.location.href = '../../index.html';
-          window.location.replace('../../index.html');
-        }, 2000);
-      } else {
-        location.reload();
-      }
+      RedirectHandler.logoutHandler();
     } catch (error) {
       console.error('Error clearing user data:', error);
     }

@@ -1,6 +1,7 @@
 import Storage from '../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
-import signUpValidation from '../validation/signUpValidation.js';
+import RedirectHandler from '../redirection/redirectHandler.js';
+import Validation from '../validation/validation.js';
 
 const registrationForm = document.querySelector('.registration-form form');
 
@@ -26,11 +27,11 @@ registrationForm.addEventListener('submit', (e) => {
   };
 
   try {
-    signUpValidation(
+    Validation.signUpValidation(
       firstName,
       lastName,
       birthdayDate,
-      gender,
+      // gender,
       email,
       city,
       password,
@@ -38,10 +39,7 @@ registrationForm.addEventListener('submit', (e) => {
     );
 
     Storage.setUserData(user);
-    createNotification('success', 'Sing Up successful! Welcome!!!.');
-    setTimeout(() => {
-      window.location.href = '/Blog-Post/src/pages/home.html';
-    }, 3000);
+    RedirectHandler.signUpHandler();
   } catch (error) {
     createNotification('error', error.message);
     console.error(error);
