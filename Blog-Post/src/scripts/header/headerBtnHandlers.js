@@ -1,4 +1,5 @@
-import { createNotification } from "../notification/createNotification.js";
+import Storage from '../../data/storage.js';
+import RedirectHandler from '../redirection/redirectHandler.js';
 const toggleThem = () => {
   const toggleBtn = document.querySelector('.toggle-theme');
   const themeIcon = toggleBtn.querySelector('i');
@@ -15,18 +16,7 @@ const logOutHandler = () => {
   if (!loginBtn) return;
 
   loginBtn.addEventListener('click', () => {
-    sessionStorage.removeItem('user');
-    if (window.location.href.includes('createPost')) {
-      createNotification(
-        'info',
-        'You have successfully logged out and will be redirected to the login page.',
-      );
-      setTimeout(() => {
-        window.location.href = '../../index.html';
-      }, 2000);
-    } else {
-      location.reload();
-    }
+    Storage.clearUserData();
   });
 };
 
@@ -35,7 +25,7 @@ const createPostHandler = () => {
   if (!createBtn) return;
 
   createBtn.addEventListener('click', () => {
-    window.location.href = './createPost.html';
+    RedirectHandler.redirectToCretePost()
   });
 };
 

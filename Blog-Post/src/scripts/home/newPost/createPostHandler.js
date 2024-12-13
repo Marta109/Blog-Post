@@ -1,4 +1,6 @@
+import Storage from '../../../data/storage.js';
 import { createNotification } from '../../notification/createNotification.js';
+import RedirectHandler from '../../redirection/redirectHandler.js';
 
 export const createNewPost = () => {
   const addBnt = document.querySelector('#create-post');
@@ -6,7 +8,7 @@ export const createNewPost = () => {
 
   addBnt.addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const title = document.querySelector('input[name="title"]').value.trim();
     const story = document.querySelector('textarea[name="story"]').value.trim();
     const firstName = document
@@ -27,15 +29,7 @@ export const createNewPost = () => {
 
     const newPost = { id, title, story, authorName, img };
 
-    let oldPosts = sessionStorage.getItem('newPost');
-    if (oldPosts) {
-      oldPosts = JSON.parse(oldPosts);
-      oldPosts.push(newPost);
-      sessionStorage.setItem('newPost', JSON.stringify(oldPosts));
-    } else {
-      sessionStorage.setItem('newPost', JSON.stringify([newPost]));
-    }
-
-    window.location.href = './home.html';
+    Storage.setNewPost(newPost);
+    RedirectHandler.redirectAfterPostCreation();
   });
 };
