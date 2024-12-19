@@ -304,6 +304,26 @@ form select {
   -webkit-box-shadow: 0 0 20px #646cff;
           box-shadow: 0 0 20px #646cff;
 }
+.box .card .post-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 4px;
+}
+.box .card .post-btn-container #delete-post {
+  color: red;
+}
+.box .card .post-btn-container #delete-post:hover {
+  color: black;
+  background-color: red;
+}
 .box .card-descr {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -330,6 +350,10 @@ form select {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .footer {

@@ -124,6 +124,17 @@ form
     .card
         background: $color_Section_bg
         box-shadow: 0 0 20px $color-shedow
+        .post-btn-container
+            display: flex
+            justify-content: flex-end
+            align-items: center
+            gap: 10px
+            padding: 4px
+            #delete-post
+                color: red
+                &:hover
+                    color: black
+                    background-color: red
 
     .card-descr
         display: flex
@@ -142,6 +153,8 @@ form
             white-space: nowrap
             overflow: hidden
             text-overflow: ellipsis
+.hidden
+    display: none !important
 
 .footer
     margin-top: 10px
