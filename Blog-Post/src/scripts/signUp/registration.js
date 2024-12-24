@@ -1,3 +1,4 @@
+import UI from '../utils/utils.js';
 import createHeader from '../header/createHeader.js';
 import { createFooter, updateFooter } from '../footer/createFooter.js';
 import { toggleThem } from '../header/headerBtnHandlers.js';
@@ -57,6 +58,7 @@ function createRegistrationLayout() {
                                       class: 'form-control form-control-lg',
                                       type: 'text',
                                       id: 'firstName',
+                                      name: 'firstName',
                                       required: true,
                                     }),
                                     UI.createElement(
@@ -86,6 +88,7 @@ function createRegistrationLayout() {
                                       class: 'form-control form-control-lg',
                                       type: 'text',
                                       id: 'lastName',
+                                      name: 'lastName',
                                       required: true,
                                     }),
                                     UI.createElement(
@@ -95,6 +98,68 @@ function createRegistrationLayout() {
                                         for: 'lastName',
                                       },
                                       'Last Name',
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ]),
+                          UI.createElement('div', { class: 'row' }, [
+                            UI.createElement(
+                              'div',
+                              { class: 'col-md-6 mb-4' },
+                              [
+                                UI.createElement(
+                                  'div',
+                                  {
+                                    'data-mdb-input-init': '',
+                                    class: 'form-outline',
+                                  },
+                                  [
+                                    UI.createElement('input', {
+                                      class: 'form-control form-control-lg',
+                                      type: 'text',
+                                      id: 'username',
+                                      name: 'username',
+                                      required: true,
+                                    }),
+                                    UI.createElement(
+                                      'label',
+                                      {
+                                        class: 'form-label',
+                                        for: 'username',
+                                      },
+                                      'User Name',
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            UI.createElement(
+                              'div',
+                              { class: 'col-md-6 mb-4' },
+                              [
+                                UI.createElement(
+                                  'div',
+                                  {
+                                    'data-mdb-input-init': '',
+                                    class: 'form-outline',
+                                  },
+                                  [
+                                    UI.createElement('input', {
+                                      class: 'form-control form-control-lg',
+                                      type: 'password',
+                                      id: 'password',
+                                      name: 'password',
+                                      required: true,
+                                    }),
+                                    UI.createElement(
+                                      'label',
+                                      {
+                                        class: 'form-label',
+                                        for: 'password',
+                                      },
+                                      'Password',
                                     ),
                                   ],
                                 ),
@@ -118,8 +183,9 @@ function createRegistrationLayout() {
                                   [
                                     UI.createElement('input', {
                                       class: 'form-control form-control-lg',
-                                      type: 'text',
+                                      type:"date",
                                       id: 'birthdayDate',
+                                      name: 'birthdayDate',
                                       required: true,
                                     }),
                                     UI.createElement(
@@ -235,6 +301,7 @@ function createRegistrationLayout() {
                                     UI.createElement('input', {
                                       class: 'form-control form-control-lg',
                                       type: 'email',
+                                      name: 'email',
                                       id: 'emailAddress',
                                       required: true,
                                     }),
@@ -267,6 +334,7 @@ function createRegistrationLayout() {
                                       'select',
                                       {
                                         class: 'select form-control-lg',
+                                        name: 'city',
                                       },
                                       [
                                         UI.createElement(

@@ -1,12 +1,16 @@
+import UI from '../utils/utils.js';
 import createHeader from '../header/createHeader.js';
 import createBloggerCard from './createBloggerCard.js';
-import createPosts from './createPosts.js';
+import createPosts from './posts/createPosts.js';
 import { createFooter, updateFooter } from '../footer/createFooter.js';
 import {
   toggleThem,
   logOutHandler,
   createPostHandler,
 } from '../header/headerBtnHandlers.js';
+import postHandler from './posts/postHandler.js';
+
+const elements = await createPosts();
 
 function createHomeLayout() {
   const container = UI.createElement('div', { class: 'container-root' }, [
@@ -21,7 +25,7 @@ function createHomeLayout() {
         ]),
       ]),
       UI.createElement('div', { class: 'section' }, [
-        ...createPosts(),
+        ...elements,
         createFooter(),
       ]),
     ]),
@@ -38,3 +42,4 @@ createHomeLayout();
 toggleThem();
 logOutHandler();
 createPostHandler();
+postHandler();

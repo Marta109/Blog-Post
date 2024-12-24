@@ -1,4 +1,7 @@
+import PostApi from '../../../../data/postApi.js';
+import Storage from '../../../data/storage.js';
 import { createNotification } from '../../notification/createNotification.js';
+import RedirectHandler from '../../redirection/redirectHandler.js';
 
 export const createNewPost = () => {
   const addBnt = document.querySelector('#create-post');
@@ -6,7 +9,7 @@ export const createNewPost = () => {
 
   addBnt.addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const title = document.querySelector('input[name="title"]').value.trim();
     const story = document.querySelector('textarea[name="story"]').value.trim();
     const firstName = document
@@ -22,20 +25,12 @@ export const createNewPost = () => {
       return;
     }
 
-    const id = Math.random();
     const authorName = `${firstName} ${lastName}`;
 
-    const newPost = { id, title, story, authorName, img };
+    const newPost = { title, story, authorName, img };
 
-    let oldPosts = sessionStorage.getItem('newPost');
-    if (oldPosts) {
-      oldPosts = JSON.parse(oldPosts);
-      oldPosts.push(newPost);
-      sessionStorage.setItem('newPost', JSON.stringify(oldPosts));
-    } else {
-      sessionStorage.setItem('newPost', JSON.stringify([newPost]));
-    }
-
-    window.location.href = './home.html';
+    PostApi.createPost(newPost).then(() => {
+      RedirectHandler.redirectAfterPostCreation();
+    });
   });
 };

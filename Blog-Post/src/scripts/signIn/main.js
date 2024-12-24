@@ -1,3 +1,4 @@
+import UI from '../utils/utils.js';
 import createHeader from '../header/createHeader.js';
 import { createFooter, updateFooter } from '../footer/createFooter.js';
 import { toggleThem } from '../header/headerBtnHandlers.js';
