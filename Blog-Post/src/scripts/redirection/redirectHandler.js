@@ -45,6 +45,10 @@ class RedirectHandler {
       this.redirectToHome();
     }, this.time);
   }
+
+  static redirectToUpdatePost() {
+    window.location.href = './createPost.html';
+  }
 }
 
 export default RedirectHandler;

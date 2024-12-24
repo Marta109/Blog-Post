@@ -1,7 +1,7 @@
 import Storage from '../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
 import RedirectHandler from '../redirection/redirectHandler.js';
-import Validation from '../validation/validation.js';
+import ValidationSignInSignUP from '../validation/signIn_signUp.js';
 
 const registrationForm = document.querySelector('.registration-form form');
 
@@ -27,7 +27,7 @@ registrationForm.addEventListener('submit', (e) => {
   };
 
   try {
-    Validation.signUpValidation(
+    ValidationSignInSignUP.signUpValidation(
       firstName,
       lastName,
       birthdayDate,

@@ -1,4 +1,6 @@
-import DataApi from '../../../../data/data.js';
+import PostApi from '../../../../data/postApi.js';
+// import createUpdatePost from '../updatePost/createUpdatePost.js';
+import getOldPostData from '../updatePost/getOldPostData.js';
 
 const postHandler = () => {
   const postWrapper = document.querySelector('main .section');
@@ -11,16 +13,19 @@ const postHandler = () => {
       const elem = e.target.closest('.card');
       const parent = elem.closest('section');
 
-      DataApi.deletePost(+elem.id).then((data) => {
-        console.log(data);
+      PostApi.deletePost(+elem.id).then(() => {
         parent.classList.add('hidden');
       });
     } else if (
       e.target.id === 'update-post' ||
       e.target.classList.contains('fa-pencil')
     ) {
-      const id = e.target.closest('.card').id;
-      console.log('bbbb');
+      const elem = e.target.closest('.card');
+      getOldPostData(elem);
+
+      // PostApi.getPostById(id).then((data) => {
+      // createUpdatePost(data)
+      // });
     } else return;
   });
 };

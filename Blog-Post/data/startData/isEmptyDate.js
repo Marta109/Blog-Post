@@ -1,15 +1,15 @@
-import DataApi from '../data.js';
+import PostApi from '../postApi.js';
 import { posts } from './startData.js';
 
 const isEmptyDate = async function () {
   try {
-    const data = await DataApi.getAllPosts();
+    const data = await PostApi.getAllPosts();
 
     if (data.length >= 1) {
       return data;
     }
 
-    const promises = posts.map((post) => DataApi.createPost(post));
+    const promises = posts.map((post) => PostApi.createPost(post));
     const createdPosts = await Promise.all(promises);
     return createdPosts;
   } catch (error) {

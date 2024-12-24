@@ -1,3 +1,4 @@
+import PostApi from '../../../../data/postApi.js';
 import Storage from '../../../data/storage.js';
 import { createNotification } from '../../notification/createNotification.js';
 import RedirectHandler from '../../redirection/redirectHandler.js';
@@ -24,12 +25,12 @@ export const createNewPost = () => {
       return;
     }
 
-    const id = Math.random();
     const authorName = `${firstName} ${lastName}`;
 
-    const newPost = { id, title, story, authorName, img };
+    const newPost = { title, story, authorName, img };
 
-    Storage.setNewPost(newPost);
-    RedirectHandler.redirectAfterPostCreation();
+    PostApi.createPost(newPost).then(() => {
+      RedirectHandler.redirectAfterPostCreation();
+    });
   });
 };

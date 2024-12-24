@@ -1,11 +1,6 @@
-class ValidationError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'ValidationError';
-  }
-}
+import ValidationError from './validationError.js';
 
-class Validation {
+class ValidationSignInSignUP {
   static validateUsername(username) {
     if (!/^[a-zA-Z0-9]+$/.test(username)) {
       throw new ValidationError(
@@ -96,4 +91,4 @@ class Validation {
   }
 }
 
-export default Validation;
+export default ValidationSignInSignUP;
