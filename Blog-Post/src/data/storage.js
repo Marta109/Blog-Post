@@ -1,7 +1,7 @@
 import RedirectHandler from '../scripts/redirection/redirectHandler.js';
 
 class Storage {
-  static clearUserData(itemName = 'user') {
+  static clearUserData(itemName = 'access') {
     try {
       sessionStorage.removeItem(itemName);
       RedirectHandler.logoutHandler();
@@ -10,31 +10,31 @@ class Storage {
     }
   }
 
-  static hasUser(itemName = 'user') {
+  static hasUser(itemName = 'access') {
     return !!sessionStorage.getItem(itemName);
   }
 
-  static getUserData(itemName = 'user') {
+  static getUserData(itemName = 'access') {
     if (!this.hasUser(itemName)) return null;
     return JSON.parse(sessionStorage.getItem(itemName));
   }
 
-  static setUserData(data, itemName = 'user') {
+  static setUserData(data, itemName = 'access') {
     sessionStorage.setItem(itemName, JSON.stringify(data));
   }
 
-  static getNewPosts(itemName = 'newPost') {
-    const posts = sessionStorage.getItem('newPost');
-    return posts ? JSON.parse(posts) : [];
-  }
+  // static getNewPosts(itemName = 'newPost') {
+  //   const posts = sessionStorage.getItem('newPost');
+  //   return posts ? JSON.parse(posts) : [];
+  // }
 
-  static setNewPost(newPost, itemName = 'newPost') {
-    let oldPosts = sessionStorage.getItem(itemName);
+  // static setNewPost(newPost, itemName = 'newPost') {
+  //   let oldPosts = sessionStorage.getItem(itemName);
 
-    oldPosts = oldPosts ? JSON.parse(oldPosts) : [];
-    oldPosts.push(newPost);
-    sessionStorage.setItem(itemName, JSON.stringify(oldPosts));
-  }
+  //   oldPosts = oldPosts ? JSON.parse(oldPosts) : [];
+  //   oldPosts.push(newPost);
+  //   sessionStorage.setItem(itemName, JSON.stringify(oldPosts));
+  // }
 }
 
 export default Storage;

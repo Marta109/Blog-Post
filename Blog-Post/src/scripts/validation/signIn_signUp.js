@@ -10,9 +10,9 @@ class ValidationSignInSignUP {
   }
 
   static validatePassword(password) {
-    if (password.length < 3 || password.length > 10) {
+    if (password.length < 6) {
       throw new ValidationError(
-        'Invalid password. Password must be between 3 and 10 characters long',
+        'Invalid password. Password should be at least 6 characters.',
       );
     }
 
@@ -37,6 +37,7 @@ class ValidationSignInSignUP {
   static validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      console.log(email);
       throw new ValidationError(
         'Invalid email. Please enter a valid email address',
       );
@@ -63,28 +64,28 @@ class ValidationSignInSignUP {
   }
 
   static signUpValidation(
-    lastName,
     firstName,
-    birthdayDate,
-    // gender,
+    lastName,
     email,
-    city,
-    password,
     username,
+    password,
+    // birthdayDate,
+    // gender,
+    // city,
   ) {
-    this.validateUsername(username);
-    this.validatePassword(password);
     this.validateName(firstName, 'first name');
     this.validateName(lastName, 'last name');
     this.validateEmail(email);
-    this.validateBirthday(birthdayDate);
-    this.validateCity(city);
+    this.validateUsername(username);
+    this.validatePassword(password);
+    // this.validateBirthday(birthdayDate);
+    // this.validateCity(city);
 
     return true;
   }
 
-  static signInValidation(username, password) {
-    this.validateUsername(username);
+  static signInValidation(email, password) {
+    this.validateEmail(email);
     this.validatePassword(password);
 
     return true;

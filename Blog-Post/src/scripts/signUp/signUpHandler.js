@@ -1,3 +1,4 @@
+import AuthApi from '../../../data/authApi.js';
 import Storage from '../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
 import RedirectHandler from '../redirection/redirectHandler.js';
@@ -18,28 +19,39 @@ registrationForm.addEventListener('submit', (e) => {
   const username = formData.get('username');
 
   const user = {
-    username: username,
-    name: firstName,
-    surName: lastName,
-    email: email,
-    loggedIn: true,
-    lastLoggedIn: new Date(),
+    firstName,
+    lastName,
+    email,
+    username,
+    password,
   };
 
   try {
     ValidationSignInSignUP.signUpValidation(
       firstName,
       lastName,
-      birthdayDate,
-      // gender,
       email,
-      city,
-      password,
       username,
+      password,
+      // birthdayDate,
+      // gender,
+      // city,
     );
 
-    Storage.setUserData(user);
-    RedirectHandler.signUpHandler();
+    AuthApi.registerUser(user)
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          return AuthApi.loginUser({ email, password });
+        }
+      })
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          Storage.setUserData(data.accessToken);
+          RedirectHandler.signUpHandler();
+        }
+      });
   } catch (error) {
     createNotification('error', error.message);
     console.error(error);

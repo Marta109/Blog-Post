@@ -1,25 +1,29 @@
+import { createNotification } from '../src/scripts/notification/createNotification.js';
 import {
   hideSpinner,
   showSpinner,
 } from '../src/scripts/utils/loading-spinner.js';
+import ApiPaths from './apiPaths.js';
 
 class PostApi {
-  static baseUrl = 'https://simple-blog-api-red.vercel.app';
-  static basePath = 'api';
-  static postPath = 'posts';
+  // static baseUrl = 'https://simple-blog-api-red.vercel.app/api';
+  // static postPath = 'posts';
 
   static async getAllPosts() {
     try {
       showSpinner();
       const response = await fetch(
-        `${this.baseUrl}/${this.basePath}/${this.postPath}`,
+        // `${this.baseUrl}/${this.postPath}`
+        ApiPaths.getFullPath(ApiPaths.paths.posts),
       );
 
       if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message);
       }
       return await response.json();
     } catch (error) {
+      createNotification('error', error);
       console.error('Error fetching posts:', error);
     } finally {
       hideSpinner();
@@ -31,15 +35,18 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        `${this.baseUrl}/${this.basePath}/${this.postPath}/${id}`,
+        // `${this.baseUrl}/${this.postPath}/${id}`
+        ApiPaths.getFullPath(ApiPaths.paths.posts, id),
       );
 
       if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message);
       }
 
       return await response.json();
     } catch (error) {
+      createNotification('error', error);
       console.error('Error fetching post:', error);
     } finally {
       hideSpinner();
@@ -51,7 +58,8 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        `${this.baseUrl}/${this.basePath}/${this.postPath}`,
+        // `${this.baseUrl}/${this.postPath}`
+        ApiPaths.getFullPath(ApiPaths.paths.posts),
         {
           method: 'POST',
           headers: {
@@ -62,13 +70,15 @@ class PostApi {
       );
 
       if (!response.ok) {
-        throw new Error(`Error! Status: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message);
       }
 
       const result = await response.json();
       return result;
     } catch (error) {
-      console.error('Error new  post:', error);
+      createNotification('error', error);
+      console.error('Error creating post:', error);
     } finally {
       hideSpinner();
     }
@@ -79,7 +89,8 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        `${this.baseUrl}/${this.basePath}/${this.postPath}/${id}`,
+        // `${this.baseUrl}/${this.postPath}/${id}`
+        ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
           method: 'PUT',
           headers: {
@@ -90,10 +101,12 @@ class PostApi {
       );
 
       if (!response.ok) {
-        throw new Error(`Error! updatePost: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message);
       }
     } catch (error) {
-      console.error('Error update  post:', error);
+      createNotification('error', error);
+      console.error('Error updating post:', error);
     } finally {
       hideSpinner();
     }
@@ -104,17 +117,20 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        `${this.baseUrl}/${this.basePath}/${this.postPath}/${id}`,
+        // `${this.baseUrl}/${this.postPath}/${id}`
+        ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
           method: 'DELETE',
         },
       );
 
       if (!response.ok) {
-        throw new Error(`Error! delete: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message);
       }
     } catch (error) {
-      console.error('Error update  delete:', error);
+      createNotification('error', error);
+      console.error('Error deleting post:', error);
     } finally {
       hideSpinner();
     }

@@ -32,6 +32,7 @@ const validAttribute = (attrName) => {
     'data-bs-dismiss',
     'aria-label',
     'tabindex',
+    'autocomplete',
   ]);
   return validAttributes.has(attrName);
 };

@@ -5,7 +5,6 @@ import getOldPostData from '../updatePost/getOldPostData.js';
 const postHandler = () => {
   const postWrapper = document.querySelector('main .section');
   postWrapper.addEventListener('click', (e) => {
-    console.log(e.target);
     if (
       e.target.id === 'delete-post' ||
       e.target.classList.contains('fa-trash')
