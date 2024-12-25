@@ -13,17 +13,13 @@ class RedirectHandler {
   }
 
   static logoutHandler() {
-    if (window.location.href.includes('createPost')) {
-      createNotification(
-        'info',
-        'You have successfully logged out and will be redirected to the login page.',
-      );
-      setTimeout(() => {
-        window.location.replace('../../index.html');
-      }, this.time);
-    } else {
-      location.reload();
-    }
+    createNotification(
+      'info',
+      'You have successfully logged out and will be redirected to the login page.',
+    );
+    setTimeout(() => {
+      window.location.replace('../../index.html');
+    }, this.time);
   }
   static signInHandler() {
     createNotification('success', 'Sing Up successful! Welcome Back!.');

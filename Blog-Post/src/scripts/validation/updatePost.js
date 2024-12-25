@@ -6,7 +6,7 @@ class ValidationUpdatePost {
       if (Object.prototype.hasOwnProperty.call(data, key)) {
         const value = data[key];
         if (value === null || value.trim() === '') {
-          throw new ValidationError(`Missing or empty value for key: ${key}`);
+          throw new ValidationError(`Missing or empty value for field: ${key}`);
         }
       }
     }
@@ -23,7 +23,7 @@ class ValidationUpdatePost {
       if (Object.prototype.hasOwnProperty.call(newPostData, key)) {
         const value = newPostData[key];
         if (value === null || value.trim() === '') {
-          throw new ValidationError(`Missing or empty value for key: ${key}`);
+          throw new ValidationError(`Missing or empty value for field: ${key}`);
         }
       }
     }

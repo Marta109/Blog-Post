@@ -1,5 +1,5 @@
 import AuthApi from '../../../data/authApi.js';
-import Storage from '../../data/storage.js';
+import Storage from '../../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
 import RedirectHandler from '../redirection/redirectHandler.js';
 import ValidationSignInSignUP from '../validation/signIn_signUp.js';
@@ -40,14 +40,12 @@ registrationForm.addEventListener('submit', (e) => {
 
     AuthApi.registerUser(user)
       .then((data) => {
-        console.log(data);
         if (data) {
           return AuthApi.loginUser({ email, password });
         }
       })
       .then((data) => {
         if (data) {
-          console.log(data);
           Storage.setUserData(data.accessToken);
           RedirectHandler.signUpHandler();
         }

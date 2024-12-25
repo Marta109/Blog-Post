@@ -1,4 +1,4 @@
-import RedirectHandler from '../scripts/redirection/redirectHandler.js';
+import RedirectHandler from '../src/scripts/redirection/redirectHandler.js';
 
 class Storage {
   static clearUserData(itemName = 'access') {

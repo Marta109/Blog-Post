@@ -6,16 +6,10 @@ import {
 import ApiPaths from './apiPaths.js';
 
 class AuthApi {
-  // static baseUrl = 'https://simple-blog-api-red.vercel.app/api/auth';
-  // static authPath = 'auth';
-  // static registerPath = 'register';
-  // static loginPath = 'login';
-
   static async loginUser(data) {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.authPath}/${this.loginPath}`,
         ApiPaths.getFullPath(ApiPaths.paths.auth.login),
         {
           method: 'POST',
@@ -43,7 +37,6 @@ class AuthApi {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.authPath}/${this.registerPath}`,
         ApiPaths.getFullPath(ApiPaths.paths.auth.register),
         {
           method: 'POST',

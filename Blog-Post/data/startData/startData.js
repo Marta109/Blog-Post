@@ -22,4 +22,25 @@ const posts = [
   },
 ];
 
-export { posts };
+const bloggers = [
+  {
+    firstName: 'Alice',
+    lastName: 'Johnson',
+    avatar:
+      'https://t3.ftcdn.net/jpg/02/79/99/80/360_F_279998099_uRENOmN021H98po8jxU1NjVTFwRJxdFi.jpg',
+  },
+  {
+    firstName: 'Bob',
+    lastName: 'Smith',
+    avatar:
+      'https://www.etsmtl.ca/uploads/_1900x1267_crop_Center-Center_70_none/programme-etudee-travail-ets.jpg',
+  },
+  {
+    firstName: 'Monica',
+    lastName: 'Brown',
+    avatar:
+      'https://avatars.mds.yandex.net/i?id=b5df56f8e589675f96dae8e813aaad05_l-9149912-images-thumbs&n=13',
+  },
+];
+
+export { posts, bloggers };

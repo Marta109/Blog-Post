@@ -7,6 +7,7 @@ class ApiPaths {
       login: 'auth/login',
     },
     posts: 'posts',
+    users: 'users',
   };
 
   static getFullPath(path, other) {

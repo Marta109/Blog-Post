@@ -20,10 +20,10 @@ const postHandler = () => {
       e.target.classList.contains('fa-pencil')
     ) {
       const elem = e.target.closest('.card');
-      getOldPostData(elem);
+      getOldPostData(elem); // suitable without request
 
       // PostApi.getPostById(id).then((data) => {
-      // createUpdatePost(data)
+      // createUpdatePost(elem, data)
       // });
     } else return;
   });

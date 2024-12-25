@@ -1,5 +1,5 @@
 import AuthApi from '../../../data/authApi.js';
-import Storage from '../../data/storage.js';
+import Storage from '../../../data/storage.js';
 import { createNotification } from '../notification/createNotification.js';
 import RedirectHandler from '../redirection/redirectHandler.js';
 import ValidationSignInSignUP from '../validation/signIn_signUp.js';
@@ -25,7 +25,6 @@ loginForm.addEventListener('submit', (e) => {
     });
   } catch (error) {
     createNotification('error', error.message);
-    console.log('wwww');
     console.error(error);
   }
 });

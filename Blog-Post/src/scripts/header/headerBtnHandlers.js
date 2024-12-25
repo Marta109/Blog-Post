@@ -1,4 +1,4 @@
-import Storage from '../../data/storage.js';
+import Storage from '../../../data/storage.js';
 import RedirectHandler from '../redirection/redirectHandler.js';
 const toggleThem = () => {
   const toggleBtn = document.querySelector('.toggle-theme');

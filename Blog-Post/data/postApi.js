@@ -6,14 +6,10 @@ import {
 import ApiPaths from './apiPaths.js';
 
 class PostApi {
-  // static baseUrl = 'https://simple-blog-api-red.vercel.app/api';
-  // static postPath = 'posts';
-
   static async getAllPosts() {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.postPath}`
         ApiPaths.getFullPath(ApiPaths.paths.posts),
       );
 
@@ -35,7 +31,6 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.postPath}/${id}`
         ApiPaths.getFullPath(ApiPaths.paths.posts, id),
       );
 
@@ -58,7 +53,6 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.postPath}`
         ApiPaths.getFullPath(ApiPaths.paths.posts),
         {
           method: 'POST',
@@ -89,7 +83,6 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.postPath}/${id}`
         ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
           method: 'PUT',
@@ -117,7 +110,6 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(
-        // `${this.baseUrl}/${this.postPath}/${id}`
         ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
           method: 'DELETE',

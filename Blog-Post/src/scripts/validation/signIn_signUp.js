@@ -37,7 +37,6 @@ class ValidationSignInSignUP {
   static validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      console.log(email);
       throw new ValidationError(
         'Invalid email. Please enter a valid email address',
       );
