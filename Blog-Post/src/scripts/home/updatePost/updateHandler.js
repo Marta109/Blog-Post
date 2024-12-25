@@ -29,7 +29,10 @@ const updatePostHandler = (id) => {
       const post = { title, story, authorName, img };
 
       try {
-        ValidationUpdatePost.validateNewData(post);
+        const postData2 = { ...post };
+        postData2.authorFirstName = firstName;
+        postData2.authorLastName = lastName;
+        ValidationUpdatePost.validateNewData(postData2);
         PostApi.updatePost(id, post).then(() => {
           postWrapper.remove();
           updatePostContent(post, id);
