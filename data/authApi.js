@@ -1,9 +1,9 @@
-import { createNotification } from '../src/scripts/notification/createNotification.js';
+import { createNotification } from "../src/scripts/notification/createNotification.js";
 import {
   hideSpinner,
   showSpinner,
-} from '../src/scripts/utils/loading-spinner.js';
-import ApiPaths from './apiPaths.js';
+} from "../src/scripts/utils/loading-spinner.js";
+import ApiPaths from "./apiPaths.js";
 
 class AuthApi {
   static async loginUser(data) {
@@ -12,12 +12,12 @@ class AuthApi {
       const response = await fetch(
         ApiPaths.getFullPath(ApiPaths.paths.auth.login),
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        },
+        }
       );
 
       if (!response.ok) {
@@ -26,8 +26,12 @@ class AuthApi {
       }
       return await response.json();
     } catch (error) {
-      createNotification('error', error);
-      console.error('login', error);
+      if (error.message === "fetch failed") {
+        createNotification("error", "The server is down");
+      } else {
+        createNotification("error", error);
+      }
+      console.error("login", error);
     } finally {
       hideSpinner();
     }
@@ -39,12 +43,12 @@ class AuthApi {
       const response = await fetch(
         ApiPaths.getFullPath(ApiPaths.paths.auth.register),
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        },
+        }
       );
       if (!response.ok) {
         const errorData = await response.json();
@@ -52,8 +56,12 @@ class AuthApi {
       }
       return await response.json();
     } catch (error) {
-      createNotification('error', error);
-      console.error('register', error);
+      if (error.message === "fetch failed") {
+        createNotification("error", "The server is down");
+      } else {
+        createNotification("error", error);
+      }
+      console.error("register", error);
     } finally {
       hideSpinner();
     }

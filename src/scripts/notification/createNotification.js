@@ -1,25 +1,25 @@
 export const createNotification = (
   type,
   message,
-  selector = '.container-root',
+  selector = ".container-root"
 ) => {
-  const notificationWrapper = document.createElement('div');
+  const notificationWrapper = document.createElement("div");
   notificationWrapper.className = `notification ${type}`;
 
-  const icon = document.createElement('span');
-  icon.className = 'notification-icon';
-  if (type === 'success') {
+  const icon = document.createElement("span");
+  icon.className = "notification-icon";
+  if (type === "success") {
     icon.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
-  } else if (type === 'error') {
+  } else if (type === "error") {
     icon.innerHTML = '<i class="fa-solid fa-times-circle"></i>';
-  } else if (type === 'info') {
+  } else if (type === "info") {
     icon.innerHTML = '<i class="fa-solid fa-info-circle"></i>';
-  } else if (type === 'warning') {
+  } else if (type === "warning") {
     icon.innerHTML = '<i class="fa-solid fa-exclamation-circle"></i>';
   }
 
-  const messageElement = document.createElement('p');
-  messageElement.className = 'notification-message';
+  const messageElement = document.createElement("p");
+  messageElement.className = "notification-message";
   messageElement.textContent = message;
 
   notificationWrapper.appendChild(icon);
@@ -28,18 +28,21 @@ export const createNotification = (
   const parentElement = document.querySelector(selector);
   if (parentElement) {
     parentElement.appendChild(notificationWrapper);
+  } else {
+    document.body.appendChild(notificationWrapper);
   }
-  
+
+
   // window.scrollTo({
   //   top: 0,
   //   behavior: 'smooth',
   // });
 
   setTimeout(() => {
-    notificationWrapper.classList.add('show');
+    notificationWrapper.classList.add("show");
   });
 
   setTimeout(() => {
-    notificationWrapper.classList.remove('show');
+    notificationWrapper.classList.remove("show");
   }, 3000);
 };

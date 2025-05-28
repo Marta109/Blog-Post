@@ -5,7 +5,7 @@ import pagination from '../pagination/pagination.js';
 const createBloggerCard = async () => {
   try {
     const data = await UsersApi.getAllUsers();
-
+    
     if (!data || data.length === 0) {
       console.warn('No data available or data is empty.');
       return [];

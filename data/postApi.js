@@ -1,10 +1,10 @@
-import { createNotification } from '../src/scripts/notification/createNotification.js';
-import checkUser from '../src/scripts/utils/checkUser.js';
+import { createNotification } from "../src/scripts/notification/createNotification.js";
+import checkUser from "../src/scripts/utils/checkUser.js";
 import {
   hideSpinner,
   showSpinner,
-} from '../src/scripts/utils/loading-spinner.js';
-import ApiPaths from './apiPaths.js';
+} from "../src/scripts/utils/loading-spinner.js";
+import ApiPaths from "./apiPaths.js";
 
 class PostApi {
   static async getAllPosts() {
@@ -18,8 +18,13 @@ class PostApi {
       }
       return await response.json();
     } catch (error) {
-      createNotification('error', error);
-      console.error('Error fetching posts:', error);
+      if (error.message == "Internal server error") {
+        createNotification("error", "The server is down. Using local data");
+      } else {
+        createNotification("error", error);
+      }
+      console.error("Error fetching posts:", error);
+      return null;
     } finally {
       hideSpinner();
     }
@@ -34,10 +39,10 @@ class PostApi {
         ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        },
+        }
       );
 
       if (!response.ok) {
@@ -47,8 +52,8 @@ class PostApi {
 
       return await response.json();
     } catch (error) {
-      createNotification('error', error);
-      console.error('Error fetching post:', error);
+      createNotification("error", error);
+      console.error("Error fetching post:", error);
     } finally {
       hideSpinner();
     }
@@ -59,9 +64,9 @@ class PostApi {
     try {
       showSpinner();
       const response = await fetch(ApiPaths.getFullPath(ApiPaths.paths.posts), {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(postData),
@@ -71,7 +76,7 @@ class PostApi {
         const errorData = await response.json();
         if (response.status === 401) {
           checkUser(true);
-          return 'false';
+          return "false";
         }
 
         throw new Error(errorData.message);
@@ -80,8 +85,8 @@ class PostApi {
       const result = await response.json();
       return result;
     } catch (error) {
-      createNotification('error', error);
-      console.error('Error creating post:', error);
+      createNotification("error", error);
+      console.error("Error creating post:", error);
     } finally {
       hideSpinner();
     }
@@ -94,13 +99,13 @@ class PostApi {
       const response = await fetch(
         ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
-          method: 'PUT',
+          method: "PUT",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(postData),
-        },
+        }
       );
 
       if (!response.ok) {
@@ -108,14 +113,14 @@ class PostApi {
 
         if (response.status === 401) {
           checkUser(true);
-          return 'false';
+          return "false";
         }
 
-        throw new Error(errorData.message || 'Error updating post');
+        throw new Error(errorData.message || "Error updating post");
       }
     } catch (error) {
-      createNotification('error', error);
-      console.error('Error updating post:', error);
+      createNotification("error", error);
+      console.error("Error updating post:", error);
     } finally {
       hideSpinner();
     }
@@ -128,24 +133,24 @@ class PostApi {
       const response = await fetch(
         ApiPaths.getFullPath(ApiPaths.paths.posts, id),
         {
-          method: 'DELETE',
+          method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        },
+        }
       );
 
       if (!response.ok) {
         const errorData = await response.json();
         if (response.status === 401) {
           checkUser(true);
-          return 'false';
+          return "false";
         }
         throw new Error(errorData.message);
       }
     } catch (error) {
-      createNotification('error', error);
-      console.error('Error deleting post:', error);
+      createNotification("error", error);
+      console.error("Error deleting post:", error);
     } finally {
       hideSpinner();
     }

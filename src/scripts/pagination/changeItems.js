@@ -3,7 +3,6 @@ const changeItems = (paginationParEL, direction, itemCount, active) => {
   const value = direction === '>>' ? +1 : -1;
 
   let end = items.length - 1;
-  // console.log('itemCount=', itemCount);
 
   items.forEach((el, i) => {
     if (i > 0 && i < end) {
@@ -25,7 +24,6 @@ const changeItems = (paginationParEL, direction, itemCount, active) => {
       items[end].classList.remove('disabled');
     }
   });
-  // console.log('end=', items[end - 1].textContent);
 };
 
 export default changeItems;

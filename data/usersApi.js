@@ -1,9 +1,10 @@
-import { createNotification } from '../src/scripts/notification/createNotification.js';
+import { createNotification } from "../src/scripts/notification/createNotification.js";
 import {
   hideSpinner,
   showSpinner,
-} from '../src/scripts/utils/loading-spinner.js';
-import ApiPaths from './apiPaths.js';
+} from "../src/scripts/utils/loading-spinner.js";
+import ApiPaths from "./apiPaths.js";
+import { bloggers } from "./startData/startData.js";
 
 class UsersApi {
   static async getAllUsers() {
@@ -16,8 +17,12 @@ class UsersApi {
       }
       return await response.json();
     } catch (error) {
-      createNotification('error', error);
-      console.error('login', error);
+      if (error.message === "Internal server error") {
+        createNotification("error", "The server is down. Using local data");
+        return bloggers;
+      } else {
+        createNotification("error", error);
+      }
     } finally {
       //   hideSpinner();
     }
